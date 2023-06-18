@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>FavoritesRecyclerAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+FavoritesRecyclerAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">sueda.tarhan.gymbuddy.adapters</span>
+
+<span class="s1">import android.content.res.ColorStateList</span>
+<span class="s1">import android.graphics.Color</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import sueda.tarhan.gymbuddy.databinding.HomeRecyclerRowBinding</span>
+<span class="s1">import sueda.tarhan.gymbuddy.model.Fav</span>
+
+<span class="s0">class </span><span class="s1">FavoritesRecyclerAdapter(private </span><span class="s0">val </span><span class="s1">list: ArrayList&lt;Fav&gt;</span><span class="s0">,</span>
+                               <span class="s1">private </span><span class="s0">val </span><span class="s1">productClickInterface: LikedProductOnClickInterface</span><span class="s0">,</span>
+                               <span class="s1">private </span><span class="s0">val </span><span class="s1">likeClickInterface: LikedOnClickInterface</span>
+
+<span class="s1">): RecyclerView.Adapter&lt;FavoritesRecyclerAdapter.FavoritesViewHolder&gt;() {</span>
+    <span class="s1">inner </span><span class="s0">class </span><span class="s1">FavoritesViewHolder(</span><span class="s0">val </span><span class="s1">binding: HomeRecyclerRowBinding) :</span>
+        <span class="s1">RecyclerView.ViewHolder(binding.root)</span>
+
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): FavoritesViewHolder {</span>
+        <span class="s0">return </span><span class="s1">FavoritesViewHolder(HomeRecyclerRowBinding.inflate(LayoutInflater.from(parent.context)</span><span class="s0">,</span>
+            <span class="s1">parent</span><span class="s0">,</span>
+            <span class="s0">false</span><span class="s1">))</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+        <span class="s0">return </span><span class="s1">list.size</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: FavoritesViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s0">val </span><span class="s1">currentItem = list[position]</span>
+        <span class="s1">holder.binding.homeKategori.text = </span><span class="s2">&quot;</span><span class="s0">${</span><span class="s1">currentItem.kullaniciKategori</span><span class="s0">} </span><span class="s2">&quot;</span>
+        <span class="s1">holder.binding.homeTarih.text = </span><span class="s2">&quot;₹</span><span class="s0">${</span><span class="s1">currentItem.kullaniciTarih</span><span class="s0">}</span><span class="s2">&quot;</span>
+        <span class="s1">holder.binding.homeSaat.text = </span><span class="s2">&quot;₹</span><span class="s0">${</span><span class="s1">currentItem.kullaniciSaat</span><span class="s0">}</span><span class="s2">&quot;</span>
+        <span class="s1">holder.binding.homeKonum.text = </span><span class="s2">&quot;₹</span><span class="s0">${</span><span class="s1">currentItem.kullaniciKonum</span><span class="s0">}</span><span class="s2">&quot;</span>
+        <span class="s1">holder.binding.homeRecyclerRowKullaniciEmail.text = </span><span class="s2">&quot;₹</span><span class="s0">${</span><span class="s1">currentItem.kullaniciEmail</span><span class="s0">}</span><span class="s2">&quot;</span>
+        <span class="s1">holder.binding.homeFav.backgroundTintList = ColorStateList.valueOf(Color.RED)</span>
+
+
+        <span class="s1">holder.itemView.setOnClickListener {</span>
+            <span class="s1">productClickInterface.onClickProduct(list[position])</span>
+        <span class="s1">}</span>
+
+        <span class="s1">holder.binding.homeFav.setOnClickListener {</span>
+            <span class="s1">likeClickInterface.onClickLike(currentItem)</span>
+            <span class="s1">holder.binding.homeFav.backgroundTintList = ColorStateList.valueOf(Color.WHITE)</span>
+
+            <span class="s1">likeClickInterface.onClickLike(currentItem)</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s0">interface </span><span class="s1">LikedProductOnClickInterface {</span>
+    <span class="s0">fun </span><span class="s1">onClickProduct(item: Fav)</span>
+<span class="s1">}</span>
+
+<span class="s0">interface </span><span class="s1">LikedOnClickInterface{</span>
+    <span class="s0">fun </span><span class="s1">onClickLike(item: Fav)</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

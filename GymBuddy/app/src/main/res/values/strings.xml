@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">GymBuddy</string>
+    //sign IN PAGE
+    <string name="signInHeader">SIGN IN</string>
+    <string name="signin_btn">Sıgn ın</string>
+    <string name="sign_in">Sign in</string>
+    <string name="infoAlready">Already have an account?</string>
+
+
+    //SIGN up PAGE
+    <string name="signUpHeader">SIGN UP</string>
+    <string name="signup_btn">Sıgn up</string>
+    <string name="username">Username</string>
+    <string name="sign_up">Sign up</string>
+    <string name="infoDont">Don’t have an account?</string>
+    //Password
+    <string name="password">Password</string>
+    <string name="helperText_password">Thk+1234</string>
+    //Email
+    <string name="email">E-mail</string>
+    <string name="helper_textEmail">s190444000@gmail.com</string>
+    //Full Name
+    <string name="fullName">Full Name</string>
+    <string name="helper_textFName">User Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //kategori
+    <string-array name="category">
+        <item>Volleyball</item>
+        <item>Basketball</item>
+        <item>Soccer</item>
+        <item>Tennis</item>
+    </string-array>
+
+
+</resources>

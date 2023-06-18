@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/cardView"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/res_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/res_delete"
+            android:padding="4dp"
+            android:text="Volleyball"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/res_tarih"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_below="@id/res_kategori"
+            android:layout_toLeftOf="@id/res_delete"
+            android:padding="4dp"
+            android:text="21/06/2023"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/res_saat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_below="@id/res_tarih"
+            android:layout_toLeftOf="@id/res_delete"
+            android:padding="4dp"
+            android:text="20.00-22.30"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/res_konum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/res_saat"
+            android:layout_margin="4dp"
+            android:layout_toLeftOf="@id/res_delete"
+            android:padding="4dp"
+            android:text="Gazi Parkı"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/res_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:padding="4dp"
+            android:src="@drawable/baseline_delete_24"
+            app:tint="@color/white" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

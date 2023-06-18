@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>HomeRecyclerAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HomeRecyclerAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">sueda.tarhan.gymbuddy.adapters</span>
+
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import sueda.tarhan.gymbuddy.model.Post</span>
+<span class="s1">import sueda.tarhan.gymbuddy.databinding.HomeRecyclerRowBinding</span>
+<span class="s2">/*interface OnPostClickListener { 
+    fun onPostClick(post: Post) 
+}*/</span>
+<span class="s0">class </span><span class="s1">HomeRecyclerAdapter(</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">postList: ArrayList&lt;Post&gt;</span>
+                          <span class="s2">//,private val onPostClickListener: OnPostClickListener</span>
+    <span class="s2">//,homeFragment: HomeFragment</span>
+<span class="s1">) :</span>
+    <span class="s1">RecyclerView.Adapter&lt;HomeRecyclerAdapter.HomeViewHolder&gt;() {</span>
+
+    <span class="s1">inner </span><span class="s0">class </span><span class="s1">HomeViewHolder(private </span><span class="s0">val </span><span class="s1">binding: HomeRecyclerRowBinding) :</span>
+        <span class="s1">RecyclerView.ViewHolder(binding.root) {</span>
+        <span class="s0">val </span><span class="s1">kullaniciEmail = binding.homeRecyclerRowKullaniciEmail</span>
+        <span class="s0">val </span><span class="s1">homeKategori = binding.homeKategori</span>
+        <span class="s0">val </span><span class="s1">homeTarih = binding.homeTarih</span>
+        <span class="s0">val </span><span class="s1">homeSaat = binding.homeSaat</span>
+        <span class="s0">val </span><span class="s1">homeKonum = binding.homeKonum</span>
+        <span class="s0">val </span><span class="s1">homeCapacity = binding.homeCapacity</span>
+
+        <span class="s2">/*init { 
+            // Öğelerin tıklanma olayını ele almak için onClickListener ayarlanır 
+            binding.homeFav.setOnClickListener { 
+                val position = adapterPosition 
+                if (position != RecyclerView.NO_POSITION) { 
+                    val clickedPost =getItem(position) 
+                    // Tıklanan öğeyle ilgili işlemler burada yapılır 
+                    addToFavFromHome(clickedPost) 
+                    sendPostToFavorites(clickedPost) 
+                    onPostClickListener.onPostClick(clickedPost) 
+                } 
+            } 
+        }*/</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int):</span>
+            <span class="s1">HomeViewHolder {</span>
+        <span class="s0">val </span><span class="s1">inflater = LayoutInflater.from(parent.context)</span>
+        <span class="s0">val </span><span class="s1">binding = HomeRecyclerRowBinding.inflate(inflater</span><span class="s0">, </span><span class="s1">parent</span><span class="s0">, false</span><span class="s1">)</span>
+        <span class="s0">return </span><span class="s1">HomeViewHolder(binding)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+        <span class="s0">return </span><span class="s1">postList.size</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: HomeViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s0">val </span><span class="s1">post = getItem(position)</span>
+
+        <span class="s1">holder.kullaniciEmail.text = post.kullaniciEmail</span>
+        <span class="s1">holder.homeKategori.text = post.kullaniciKategori</span>
+        <span class="s1">holder.homeTarih.text = post.kullaniciTarih</span>
+        <span class="s1">holder.homeSaat.text = post.kullaniciSaat</span>
+        <span class="s1">holder.homeKonum.text = post.kullaniciKonum</span>
+        <span class="s1">holder.homeCapacity.text = post.kullaniciKapasite</span>
+
+
+    <span class="s1">}</span>
+    <span class="s1">private </span><span class="s0">fun </span><span class="s1">getItem(position: Int): Post {</span>
+        <span class="s0">return </span><span class="s1">postList[position]</span>
+    <span class="s1">}</span>
+
+    <span class="s1">private </span><span class="s0">fun </span><span class="s1">addToFavFromHome(post: Post) {}</span>
+        <span class="s2">// Implement your addToFavFromHome functionality here</span>
+       <span class="s2">// val favoritesList = getFavoritesFromDatabase()</span>
+
+        <span class="s2">/*// Post'un zaten favorilere eklenmiş olup olmadığını kontrol edin 
+        if (favoritesList.contains(post)) { 
+            // Post zaten favorilere eklenmişse, favorilerden kaldırın 
+            favoritesList.remove(post) 
+        } else { 
+            // Post favorilere eklenmemişse, favorilere ekleyin 
+            favoritesList.add(post) 
+        } 
+ 
+        // Güncellenmiş favori listesini veritabanına kaydedin 
+        saveFavoritesToDatabase(favoritesList) 
+    }*/</span>
+<span class="s1">}</span>
+<span class="s2">//ileri seviye 4-18</span></pre>
+</body>
+</html>

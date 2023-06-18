@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "889295010774",
+    "project_id": "gymbuddy-8647c",
+    "storage_bucket": "gymbuddy-8647c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889295010774:android:52a3a75e5670d688e28277",
+        "android_client_info": {
+          "package_name": "sueda.tarhan.gymbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889295010774-6t9co8vqksar6867uncfu7mchirf06vj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqfCdRQY0an5koFKyWRaoUvFimNjYG__0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889295010774-6t9co8vqksar6867uncfu7mchirf06vj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

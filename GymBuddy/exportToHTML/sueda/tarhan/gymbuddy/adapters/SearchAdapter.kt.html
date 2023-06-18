@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>SearchAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+SearchAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">sueda.tarhan.gymbuddy.adapters</span>
+
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import android.widget.TextView</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import sueda.tarhan.gymbuddy.R</span>
+<span class="s1">import sueda.tarhan.gymbuddy.model.searchData</span>
+
+<span class="s0">class </span><span class="s1">SearchAdapter(</span><span class="s0">var </span><span class="s1">mList: List&lt;searchData&gt;) :</span>
+    <span class="s1">RecyclerView.Adapter&lt;SearchAdapter.SearchViewHolder&gt;() {</span>
+
+    <span class="s1">inner </span><span class="s0">class </span><span class="s1">SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {</span>
+
+        <span class="s0">val </span><span class="s1">Email: TextView = itemView.findViewById(R.id.search_recycler_row_kullanici_email)</span>
+        <span class="s0">val </span><span class="s1">Kategori: TextView = itemView.findViewById(R.id.search_kategori)</span>
+        <span class="s0">val </span><span class="s1">Tarih: TextView = itemView.findViewById(R.id.search_tarih)</span>
+        <span class="s2">/*val Kategori = binding.homeKategori 
+        val Tarih = binding.homeTarih 
+        val Saat = binding.homeSaat 
+        val Konum = binding.homeKonum 
+        val Capacity = binding.homeCapacity*/</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): SearchViewHolder {</span>
+        <span class="s2">/*val inflater = LayoutInflater.from(parent.context) 
+        val binding = HomeRecyclerRowBinding.inflate(inflater, parent, false) 
+        return SearchViewHolder(binding)*/</span>
+        <span class="s0">val </span><span class="s1">view = LayoutInflater.from(parent.context).inflate(R.layout.search_recycler_row </span><span class="s0">, </span><span class="s1">parent </span><span class="s0">, false</span><span class="s1">)</span>
+        <span class="s0">return </span><span class="s1">SearchViewHolder(view)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+        <span class="s0">return </span><span class="s1">mList.size</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: SearchViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s1">holder.Email.text = mList[position].kullaniciEmail</span>
+        <span class="s1">holder.Kategori.text = mList[position].kullaniciKategori</span>
+        <span class="s1">holder.Tarih.text = mList[position].kullaniciTarih</span>
+        <span class="s2">/*holder.Saat.text = mList[position].kullaniciSaat 
+        holder.Konum.text = mList[position].kullaniciKonum 
+        holder.Capacity.text = mList[position].kullaniciKapasite*/</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
